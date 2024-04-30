@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Password Generator</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #800080, #9400D3); /* Purple gradient */
+            margin: 0;
+            padding: 0;
+            height: 100vh; /* Full height of the viewport */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .main {
+            padding: 20px;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.8); /* Transparent white */
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        input[type="checkbox"] {
+            margin-right: 5px; /* Add space between checkboxes */
+        }
+        .about_us {
+            margin-top: 20px;
+        }
+        .about_us a {
+            color: white; /* Set link color to white */
+        }
+    </style>
+</head>
+<body>
+    <div class="main text-center">
+        <h1>Password Generator</h1>
+        <hr>
+        <form action="{% url 'password' %}">
+            <select name="LENGTH" id="LENGTH">
+                <option value="6">6 chars</option>
+                <option value="7">7 chars</option>
+                <option value="8">8 chars</option>
+                <option value="9">9 chars</option>
+                <option value="10">10 chars</option>
+                <option value="11">11 chars</option>
+                <option value="12" selected="selected">12 chars</option>
+                <option value="13">13 chars</option>
+                <option value="14">14 chars</option>
+            </select>
+            LENGTH
+            <br> <br>
+
+            <input type="checkbox" name="uppercase" id="checkbox"> UPPERCASE
+            <br><br>
+
+            <input type="checkbox" name="numbers" id="checkbox"> Numbers
+            <br><br>
+
+            <input type="checkbox" name="specialchars" id="checkbox"> Special Characters
+            <br><br>
+
+            <input type="submit" value="Generate Password" class="btn btn-primary">
+        </form>
+    </div>
+    <br>
+    <div class="about_us text-center">
+        <a href="{%url 'aboutus' %}"><em>Mission and Vision</em></a>
+    </div>
+</body>
+</html>
